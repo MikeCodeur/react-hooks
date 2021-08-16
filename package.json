@@ -4,7 +4,7 @@
   "description": "Module sur les Hooks de la formation React Entreprise",
   "author": "Mike Codeur <contact@mikecodeur.com> (https://mikecodeur.com/)",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "keywords": [],
   "homepage": "http://react-hooks.mikecodeur.com",
   "license": "GPL-3.0-only",
@@ -14,7 +14,7 @@
     "npm": ">=6"
   },
   "dependencies": {
-    "@mikecodeur/react-course-app": "0.0.8",
+    "@mikecodeur/react-course-app": "0.0.9",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "@types/react": "^17.0.11",
