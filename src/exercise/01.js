@@ -3,9 +3,6 @@
 
 import * as React from 'react'
 
-// 🤖 Utilise className pour la taille et le style (backgroundColor) pour la couleur
-// 🤖 chaque element doive avoir "container" className appliqué
-
 // 🐶 Rend ce composant statefull en ajoutant un state email
 
 function Login() {
@@ -20,7 +17,7 @@ function Login() {
     <div>
       <div>
         <label>Entrez votre email : </label>
-        <input value={email} onChange />
+        <input value={email} onChange={handleChange} />
       </div>
       <div>Votre {email}</div>
     </div>
