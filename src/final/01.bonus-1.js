@@ -6,7 +6,9 @@ import * as React from 'react'
 
 function Login({initialEmail = ''}) {
   const [email, setEmail] = React.useState(initialEmail)
-  const handleChange = event => setEmail(event.target.value)
+  const handleChange = (event) => {
+    setEmail(event.target.value)
+  }
   return (
     <div>
       <form>

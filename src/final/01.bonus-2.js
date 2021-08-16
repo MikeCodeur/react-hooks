@@ -6,12 +6,11 @@ import * as React from 'react'
 
 function Login({initialEmail = ''}) {
   const [email, setEmail] = React.useState(initialEmail)
+  const [error, setError] = React.useState(false)
   const handleChange = event => {
     setEmail(event.target.value)
     setError(!event.target.value.includes('@'))
   }
-
-  const [error, setError] = React.useState(initialEmail)
   return (
     <div>
       <form>

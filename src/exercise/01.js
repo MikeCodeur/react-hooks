@@ -6,18 +6,21 @@ import * as React from 'react'
 // 🤖 Utilise className pour la taille et le style (backgroundColor) pour la couleur
 // 🤖 chaque element doive avoir "container" className appliqué
 
-// 🐶 ajoute un props className à chaque element avec le bon nonm
-// 🤖 Les class names dispo: container, container--large, container--medium, container--small
+// 🐶 Rend ce composant statefull en ajoutant un state email
 
-// 🐶 Ajoute egalement un prop style sur chaque element pour changer le backgroundColor
-// le text doit aussi etre en italique `fontStyle: 'italic'`
 function Login() {
-  const email = 'a'
+  // ⛏️ supprime la variable email et replace par un hook useState.
+  const email = ''
+
+  const handleChange = (event) => {
+    // 🐶 Récupère la valeur du champ input avec event.target.value et met à jour l'email
+  }
+  
   return (
     <div>
       <div>
         <label>Entrez votre email : </label>
-        <input value={email} />
+        <input value={email} onChange />
       </div>
       <div>Votre {email}</div>
     </div>
