@@ -4,7 +4,7 @@
   "description": "Module sur les Hooks de la formation React Entreprise",
   "author": "Mike Codeur <contact@mikecodeur.com> (https://mikecodeur.com/)",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "keywords": [],
   "homepage": "http://react-hooks.mikecodeur.com",
   "license": "GPL-3.0-only",
