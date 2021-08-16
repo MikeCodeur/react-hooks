@@ -3,121 +3,77 @@
 // http://localhost:3000/alone/03.js
 
 import * as React from 'react'
+import emojiList from '../emojiList'
+import '../03-styles.css'
 
-function Child() {
-  console.log('%c    Child: render start', 'color: MediumSpringGreen')
+function Header() {
+  return <div className="component-header">Emoji Search</div>
+}
 
-  const [count, setCount] = React.useState(() => {
-    console.log('%c    Child: useState(() => 0)', 'color: tomato')
-    return 0
-  })
-
-  React.useEffect(() => {
-    console.log('%c    Child: useEffect(() => {})', 'color: LightCoral')
-    return () => {
-      console.log(
-        '%c    Child: useEffect(() => {}) cleanup 🧹',
-        'color: LightCoral',
-      )
-    }
-  })
-
-  React.useEffect(() => {
-    console.log(
-      '%c    Child: useEffect(() => {}, [])',
-      'color: MediumTurquoise',
-    )
-    return () => {
-      console.log(
-        '%c    Child: useEffect(() => {}, []) cleanup 🧹',
-        'color: MediumTurquoise',
-      )
-    }
-  }, [])
-
-  React.useEffect(() => {
-    console.log('%c    Child: useEffect(() => {}, [count])', 'color: HotPink')
-    return () => {
-      console.log(
-        '%c    Child: useEffect(() => {}, [count]) cleanup 🧹',
-        'color: HotPink',
-      )
-    }
-  }, [count])
-
-  const element = (
-    <button onClick={() => setCount(previousCount => previousCount + 1)}>
-      {count}
-    </button>
+function SearchInput({onTextChange}) {
+  const onChange = e => {
+    onTextChange(e.target.value)
+  }
+  return (
+    <div className="component-search-input">
+      <div>
+        <input onChange={onChange} />
+      </div>
+    </div>
   )
+}
 
-  console.log('%c    Child: render end', 'color: MediumSpringGreen')
+function Result({data}) {
+  return (
+    <div className="component-emoji-results">
+      {data.map(emojiData => (
+        <EmojiResultRow
+          key={emojiData.title}
+          symbol={emojiData.symbol}
+          title={emojiData.title}
+        />
+      ))}
+    </div>
+  )
+}
 
-  return element
+function EmojiResultRow({symbol, title}) {
+  return (
+    <div className="component-emoji-result-row">
+      {symbol}
+      <span>{title}</span>
+    </div>
+  )
 }
 
 function App() {
-  console.log('%cApp: render start', 'color: MediumSpringGreen')
-
-  const [showChild, setShowChild] = React.useState(() => {
-    console.log('%cApp: useState(() => false)', 'color: tomato')
-    return false
-  })
-
-  React.useEffect(() => {
-    console.log('%cApp: useEffect(() => {})', 'color: LightCoral')
-    return () => {
-      console.log('%cApp: useEffect(() => {}) cleanup 🧹', 'color: LightCoral')
-    }
-  })
-
-  React.useEffect(() => {
-    console.log('%cApp: useEffect(() => {}, [])', 'color: MediumTurquoise')
-    return () => {
-      console.log(
-        '%cApp: useEffect(() => {}, []) cleanup 🧹',
-        'color: MediumTurquoise',
-      )
-    }
-  }, [])
-
-  React.useEffect(() => {
-    console.log('%cApp: useEffect(() => {}, [showChild])', 'color: HotPink')
-    return () => {
-      console.log(
-        '%cApp: useEffect(() => {}, [showChild]) cleanup 🧹',
-        'color: HotPink',
-      )
-    }
-  }, [showChild])
-
-  const element = (
-    <>
-      <label>
-        <input
-          type="checkbox"
-          checked={showChild}
-          onChange={e => setShowChild(e.target.checked)}
-        />{' '}
-        show child
-      </label>
-      <div
-        style={{
-          padding: 10,
-          margin: 10,
-          height: 50,
-          width: 50,
-          border: 'solid',
-        }}
-      >
-        {showChild ? <Child /> : null}
-      </div>
-    </>
+  const [dataEmoji, setDataEmoji] = React.useState([])
+  const handleTextChange = text => {
+    setDataEmoji(filterEmoji(text))
+  }
+  return (
+    <div>
+      <Header />
+      <SearchInput onTextChange={handleTextChange} />
+      <Result data={dataEmoji} />
+    </div>
   )
-
-  console.log('%cApp: render end', 'color: MediumSpringGreen')
-
-  return element
 }
-
 export default App
+
+function filterEmoji(searchText, maxResults = 10) {
+  return emojiList
+    .filter(emoji => {
+      if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
+        return true
+      }
+      if (emoji.keywords.includes(searchText)) {
+        return true
+      }
+      if (emoji.symbol.includes(searchText)) {
+        return true
+      }
+      return false
+    })
+    .slice(0, maxResults)
+}

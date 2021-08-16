@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 
-function Login({initialEmail = '',passord}) {
+function Login({initialEmail = ''}) {
   const [email, setEmail] = React.useState(
     () => window.localStorage.getItem('email') || initialEmail,
   )
