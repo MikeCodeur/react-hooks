@@ -1,6 +1,18 @@
 
 
 
+.component-header {
+  padding: 15px;
+  position: relative;
+  font-weight: normal;
+  font-size: 32px;
+  text-align: center;
+  color: #333;
+}
+.component-header .reusult-found {
+  font-size: 16px;
+}
+
 
 .component-search-input input {
   border-radius: 4px;
@@ -26,18 +38,13 @@
 .component-emoji-result-row .info {
   float: right;
   position: relative;
-  top: 8px;
-  right: 10px;
-  color: #ccc;
+  
+  color:lightpink;
   display: none;
 }
-
-.component-header {
-  padding: 15px;
-  position: relative;
-  font-weight: normal;
-  font-size: 32px;
-  text-align: center;
-  color: #333;
+.component-emoji-result-row:hover .info {
+  display: inline-block;
 }
+
+
 

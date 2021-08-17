@@ -1,10 +1,10 @@
 // Emoji List
-// http://localhost:3000/alone/03.js
-// Voir https://github.com/ahfarmer/emoji-search/
+// 🚀 Avec Hook Clipboard
+// http://localhost:3000/alone/final/03.bonus-1.js
 
 import * as React from 'react'
 import emojiList from '../emojiList'
-import Clipboard from 'clipboard'
+import useClipboard from 'react-use-clipboard'
 import '../03-styles.css'
 
 function Header({nbFound}) {
@@ -45,13 +45,7 @@ function EmojiSearch() {
   )
 }
 
-function Result({data = []}) {
-  React.useEffect(() => {
-    const clipboard = new Clipboard('.copy-to-clipboard')
-    return () => {
-      clipboard.destroy()
-    }
-  })
+function Result({data}) {
   return (
     <div className="component-emoji-results">
       {data.map(emojiData => (
@@ -66,14 +60,13 @@ function Result({data = []}) {
 }
 
 function EmojiResultRow({symbol, title}) {
+  const [isCopied, setCopied] = useClipboard(symbol)
   return (
-    <div
-      className="component-emoji-result-row copy-to-clipboard"
-      data-clipboard-text={symbol}
-    >
+    <div className="component-emoji-result-row" onClick={setCopied}>
       {symbol}
       <span className="title">{title}</span>
       <span className="info">Copier</span>
+      {isCopied ? <span className="info"> 📋 </span> : null}
     </div>
   )
 }
