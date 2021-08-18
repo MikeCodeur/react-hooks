@@ -1,5 +1,5 @@
 // useRef et useEffect
-// http://localhost:3000/alone/final/05.js
+// http://localhost:3000/alone/final/06.js
 
 import * as React from 'react'
 import calculate from '../logic/calculate'

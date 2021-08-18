@@ -1,43 +1,53 @@
 // useRef et useEffect
-// http://localhost:3000/alone/exercise/05.js
+// http://localhost:3000/alone/exercise/06.js
 
 import React from "react";
 import calculate from "../logic/calculate";
 import "../06-styles.css";
 
+// 👨‍✈️ Il faut migrer cet application calculette.
+
+// ⛏️ surprime 'extendsReact.Component' et renomme 'class' en 'function'
+// 🐶 ajoute un prop 'value'
 class Display extends React.Component {
 
+  // 🐶 supprime le render mais garde le return
   render() {
     return (
       <div className="component-display">
+        {/* ⛏️ supprime this.props */}
         <div>{this.props.value}</div>
       </div>
     );
   }
 }
+// 🐶 répète les mêmes étapes de conversion
 class Button extends React.Component {
 
-
+  // 🐶 ajoute const
   handleClick = () => {
+    //⛏️ supprime this.props
     this.props.clickHandler(this.props.name);
   };
-
+  //⛏️ supprime render()
   render() {
     const className = [
       "component-button",
+      //⛏️ supprime this.props
       this.props.orange ? "orange" : "",
       this.props.wide ? "wide" : "",
     ];
 
     return (
       <div className={className.join(" ").trim()}>
+        {/* ⛏️ supprime this et this.props */}
         <button onClick={this.handleClick}>{this.props.name}</button>
       </div>
     );
   }
 }
+// 🐶 répète les mêmes étapes de conversion
 class ButtonPanel extends React.Component {
-
 
   handleClick = buttonName => {
     this.props.clickHandler(buttonName);
@@ -79,23 +89,36 @@ class ButtonPanel extends React.Component {
     );
   }
 }
-
+// 🐶 répète les mêmes étapes de conversion
 export default class App extends React.Component {
+  // 🐶 converti ces 3 states avec useState
+  // 🤖 const [total, setTotal] = React.useState(null)
   state = {
     total: null,
     next: null,
     operation: null,
   };
-
+  // 🐶 converti la fonction
   handleClick = buttonName => {
-    console.log('--------------')
-    const objCalc = calculate({total:this.state.total, next:this.state.next, operation:this.state.operation}, buttonName)
-    console.log('objCalc',objCalc)
-   // console.log('buttonName',buttonName)
-    /*this.setState({total:objCalc.total});
-    this.setState({next:objCalc.next});
-    this.setState({operation:objCalc.operation});*/
-    this.setState(objCalc);
+    const calculObject = calculate(this.state, buttonName);
+    // ⚠️ Ici une syntaxe particulière `this.setState(calculObject)` qui permet de mettre à jour 3 states en meme temps
+    // car calculObject contient total, next, operation
+    // on pourait croire qu'il suffit de faire 
+    // 🤖
+    // setTotal(calculObject.total)
+    // setNext(calculObject.next)
+    // setOperation(calculObject.operation)
+    //
+    // Mais cette syntaxe met systématiquemement à jour le state
+    // tandis que this.setState(calculObject), met à jour uniquement si les states sont définis (!== undefined)
+    // La bonne équivalence est plutot 
+    // 🤖
+    // if (objCalc.total !== undefined) {
+    //  setTotal(objCalc.total)
+    // }
+
+    // 🐶 Les migrations ne sont pas toujours automatisables et il faut comprendre les subitilités
+    this.setState(calculObject);
   };
 
   render() {

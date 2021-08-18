@@ -4,6 +4,7 @@
 
 import * as React from 'react'
 import emojiList from '../emojiList'
+// eslint-disable-next-line no-unused-vars
 import Clipboard from 'clipboard'
 import '../04-styles.css'
 
