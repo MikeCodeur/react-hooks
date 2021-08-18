@@ -1,94 +1,50 @@
-// Emoji List
-// 🚀 Avec Hook Clipboard
+// Lifting state
+// 🚀 deplacer un state
 // http://localhost:3000/alone/final/03.bonus-1.js
 
 import * as React from 'react'
-import emojiList from '../emojiList'
-import useClipboard from 'react-use-clipboard'
-import '../03-styles.css'
 
-function Header({nbFound}) {
-  return (
-    <div className="component-header">
-      <div>Recherche Emoji</div>
-      <div className="reusult-found">
-        {nbFound > 0 ? `${nbFound} emojis trouvés` : `Aucun résultat`}
-      </div>
-    </div>
-  )
-}
 
-function SearchInput({onTextChange}) {
-  const onChange = e => {
-    onTextChange(e.target.value)
-  }
-  return (
-    <div className="component-search-input">
-      <div>
-        <input onChange={onChange} />
-      </div>
-    </div>
-  )
-}
-
-function EmojiSearch() {
-  const [dataEmoji, setDataEmoji] = React.useState([])
-  const handleTextChange = text => {
-    setDataEmoji(filterEmoji(text))
-  }
+function MyBestComputer({computer, onComputerChange}) {
   return (
     <div>
-      <Header nbFound={dataEmoji.length} />
-      <SearchInput onTextChange={handleTextChange} />
-      <Result data={dataEmoji} />
+      <label>Mon ordinateur préféré : </label>
+      <input
+        value={computer}
+        onChange={event => onComputerChange(event.target.value)}
+      />
     </div>
   )
 }
 
-function Result({data}) {
+function UserName() {
+  const [userName, setUserName] = React.useState('')
   return (
-    <div className="component-emoji-results">
-      {data.map(emojiData => (
-        <EmojiResultRow
-          key={emojiData.title}
-          symbol={emojiData.symbol}
-          title={emojiData.title}
-        />
-      ))}
+    <div>
+      <label>Nom d'utilisateur : </label>
+      <input
+        value={userName}
+        onChange={event => setUserName(event.target.value)}
+      />
     </div>
   )
 }
 
-function EmojiResultRow({symbol, title}) {
-  const [isCopied, setCopied] = useClipboard(symbol)
+function Content({computer}) {
   return (
-    <div className="component-emoji-result-row" onClick={setCopied}>
-      {symbol}
-      <span className="title">{title}</span>
-      <span className="info">Copier</span>
-      {isCopied ? <span className="info"> 📋 </span> : null}
+    <div>
+     Ton ordinateur préféré est <b>{computer}</b>
     </div>
   )
 }
-
 function App() {
-  return <EmojiSearch />
+  const [computer, setComputer] = React.useState('MacBookPro')
+  return (
+    <div>
+      <MyBestComputer computer={computer} onComputerChange={setComputer} />
+      <UserName />
+      <Content computer={computer} />
+    </div>
+  )
 }
 export default App
-
-function filterEmoji(searchText, maxResults = 10) {
-  return emojiList
-    .filter(emoji => {
-      if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
-        return true
-      }
-      if (emoji.keywords.includes(searchText)) {
-        return true
-      }
-      if (emoji.symbol.includes(searchText)) {
-        return true
-      }
-      return false
-    })
-    .slice(0, maxResults)
-}

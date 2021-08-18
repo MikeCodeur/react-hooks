@@ -1,101 +1,48 @@
-// Emoji List
-// http://localhost:3000/alone/03.js
-// Voir https://github.com/ahfarmer/emoji-search/
+// Lifting state
+// http://localhost:3000/alone/final/03.js
 
 import * as React from 'react'
-import emojiList from '../emojiList'
-import Clipboard from 'clipboard'
-import '../03-styles.css'
 
-function Header({nbFound}) {
-  return (
-    <div className="component-header">
-      <div>Recherche Emoji</div>
-      <div className="reusult-found">
-        {nbFound > 0 ? `${nbFound} emojis trouvés` : `Aucun résultat`}
-      </div>
-    </div>
-  )
-}
-
-function SearchInput({onTextChange}) {
-  const onChange = e => {
-    onTextChange(e.target.value)
-  }
-  return (
-    <div className="component-search-input">
-      <div>
-        <input onChange={onChange} />
-      </div>
-    </div>
-  )
-}
-
-function EmojiSearch() {
-  const [dataEmoji, setDataEmoji] = React.useState([])
-  const handleTextChange = text => {
-    setDataEmoji(filterEmoji(text))
-  }
+function MyBestComputer({computer, onComputerChange}) {
   return (
     <div>
-      <Header nbFound={dataEmoji.length} />
-      <SearchInput onTextChange={handleTextChange} />
-      <Result data={dataEmoji} />
+      <label>Mon ordinateur préféré : </label>
+      <input
+        value={computer}
+        onChange={event => onComputerChange(event.target.value)}
+      />
     </div>
   )
 }
 
-function Result({data = []}) {
-  React.useEffect(() => {
-    const clipboard = new Clipboard('.copy-to-clipboard')
-    return () => {
-      clipboard.destroy()
-    }
-  })
+function UserName({userName, onUserNameChange}) {
   return (
-    <div className="component-emoji-results">
-      {data.map(emojiData => (
-        <EmojiResultRow
-          key={emojiData.title}
-          symbol={emojiData.symbol}
-          title={emojiData.title}
-        />
-      ))}
+    <div>
+      <label>Nom d'utilisateur : </label>
+      <input
+        value={userName}
+        onChange={event => onUserNameChange(event.target.value)}
+      />
     </div>
   )
 }
 
-function EmojiResultRow({symbol, title}) {
+function Content({userName, computer}) {
   return (
-    <div
-      className="component-emoji-result-row copy-to-clipboard"
-      data-clipboard-text={symbol}
-    >
-      {symbol}
-      <span className="title">{title}</span>
-      <span className="info">Copier</span>
+    <div>
+      Salut <b>{userName}</b>, ton ordinateur préféré est <b>{computer}</b>
     </div>
   )
 }
-
 function App() {
-  return <EmojiSearch />
+  const [computer, setComputer] = React.useState('MacBookPro')
+  const [userName, setUserName] = React.useState('')
+  return (
+    <div>
+      <MyBestComputer computer={computer} onComputerChange={setComputer} />
+      <UserName userName={userName} onUserNameChange={setUserName} />
+      <Content userName={userName} computer={computer} />
+    </div>
+  )
 }
 export default App
-
-function filterEmoji(searchText, maxResults = 10) {
-  return emojiList
-    .filter(emoji => {
-      if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
-        return true
-      }
-      if (emoji.keywords.includes(searchText)) {
-        return true
-      }
-      if (emoji.symbol.includes(searchText)) {
-        return true
-      }
-      return false
-    })
-    .slice(0, maxResults)
-}
