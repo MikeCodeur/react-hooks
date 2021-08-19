@@ -2,60 +2,41 @@
 // http://localhost:3000/alone/final/07.js
 
 import * as React from 'react'
-import {fetchMarvel, fetchMarvelById, MarvelPersoView} from '../marvel'
-import '../04-styles.css'
 
-function MarvelList() {
-  const [marvelList, setMarvelList] = React.useState([])
-  const [marvel, setMarvel] = React.useState()
-  const [name, setName] = React.useState('X-Men')
-  const [selectedMarvelId, setSelectedMarvelId] = React.useState('')
-  const firstUpdate = React.useRef(true)
+function ArticleList({query = 'redux'}) {
+  const [data, setData] = React.useState([])
 
   React.useEffect(() => {
-    console.log('React.useEffect', selectedMarvelId)
-    if (firstUpdate.current) {
-      firstUpdate.current = false
-      return
-    }
-    fetchMarvelById(selectedMarvelId).then(marvel => {
-      setMarvel(marvel)
-      setMarvelList([])
-    })
-  }, [selectedMarvelId])
-
-  const onChange = e => {
-    setName(e.target.value)
-  }
-  const handleSearch = e => {
-    setMarvel(null)
-    fetchMarvel(name).then(marvel => setMarvelList(marvel))
-  }
+    return fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
+      .then(response => response.json())
+      .then(json => {
+        setData(json.hits)
+      })
+  }, [query])
 
   return (
-    <div className="marvel-app">
-      <div className="component-header">
-        <div>Recherche Marvel</div>
-        <div>
-          <input type="text" value={name} onChange={onChange} />
-          <input type="button" onClick={handleSearch} value={'rechercher'} />
-        </div>
-      </div>
-      {marvel ? <MarvelPersoView marvel={marvel} /> : null}
-      <ul>
-        {marvelList.map(marvel => {
-          return (
-            <li key={marvel.id} onClick={() => setSelectedMarvelId(marvel.id)}>
-              {marvel.name}
-            </li>
-          )
-        })}
-      </ul>
-    </div>
+    <ul>
+      {data.map(item => (
+        <li key={item.objectID}>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      ))}
+    </ul>
   )
 }
 
 function App() {
-  return <MarvelList />
+  const [searchText, setSearchText] = React.useState('')
+  return (
+    <div>
+      <label>Recherher</label>
+      <input
+        type="text"
+        value={searchText}
+        onChange={e => setSearchText(e.target.value)}
+      />
+      <ArticleList query={searchText}></ArticleList>
+    </div>
+  )
 }
 export default App
