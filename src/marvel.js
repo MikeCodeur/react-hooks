@@ -37,26 +37,6 @@ const fetchMarvel = name => {
     }) // ERROR APPEL API
 }
 
-const fetchMarvelById = id => {
-  const url = `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${marvelApiKey}`
-  return fetch(url, init) // APPEL VERS L'API
-    .then(response => response.json()) // REPONSE PROMISE API
-    .then(json => {
-      if (json.data.results?.[0]) {
-        return json.data.results?.[0]
-      } else {
-        return Promise.reject(
-          new Error(`Aucun Marvel trouvé avec l'id "${id}"`),
-        )
-      }
-    })
-    .catch(error => {
-      return Promise.reject(new Error(`Aucun Marvel trouvé avec l'id "${id}"`))
-    }) // ERROR DU JSON()
-    .catch(error => {
-      return Promise.reject(new Error(`Aucun Marvel trouvé avec l'id "${id}"`))
-    }) // ERROR APPEL API
-} 
 
 function MarvelPersoView({marvel}) {
   return (
@@ -100,17 +80,5 @@ function MarvelSearchForm({onSearch, marvelName}) {
   )
 }
 
-function MarvelList({marvelList}){
-  const [selectedMarvelId, setSelectedMarvelId] = React.useState('')
-  return  <ul>
-  {marvelList.map(marvel => {
-    return (
-      <li key={marvel.id} onClick={() => setSelectedMarvelId(marvel.id)}>
-        {marvel.name}
-      </li>
-    )
-  })}
-</ul>
-}
 
-export {MarvelPersoView, MarvelSearchForm, fetchMarvel, fetchMarvelById}
+export {MarvelPersoView, MarvelSearchForm, fetchMarvel}

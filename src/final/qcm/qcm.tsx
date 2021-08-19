@@ -16,35 +16,11 @@ interface IQCMInterface {
 const QCM: Array<IQCMInterface> = [
   {
     exerciseId: 'src/exercise/01.md',
-    exerciseTitle: 'Les bases de React',
+    exerciseTitle: 'useState',
     quiz: [
       {
-        question: "React est ?",
-        options: ["lib", "framework", "langage", "autre"],
-        answer: "0"
-      },{
-        question: "HMTL est ",
-        options: ["a2", "b2", "c2", "d2"],
-        answer: "2"
-      },{
-        question: "Render app",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "3"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
+        question: "Comment initiliaser un state par défaut ?",
+        options: ["React.useDefautState(0)", "React.useState(0)", "React.useState = 0"],
         answer: "1"
       }
     ],
@@ -52,52 +28,93 @@ const QCM: Array<IQCMInterface> = [
   //export
   {
     exerciseId: 'src/exercise/02.md',
-    exerciseTitle: 'Manipuler le DOM',
+    exerciseTitle: 'useEffect : Effet de bord',
     quiz: [
       {
-        question: "DOM cest quoi  ?",
-        options: ["chrome", "bbb", "sss", "ddd"],
+        question: "useEffect s'execute",
+        options: ["Avant le rendu final du composant", "Après le rendu final du composant"],
+        answer: "1"
+      },{
+        question: "A quoi servent les dépendances de useEffect ?",
+        options: ["A limiter l'execution du hook sur un chagement de valeur", "A executer systematiquement"],
         answer: "0"
-      },{
-        question: "HMTL est ",
-        options: ["a2", "b2", "c2", "d2"],
-        answer: "2"
-      },{
-        question: "Render app",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "3"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
-      },{
-        question: "How heavy are you?",
-        options: ["a3", "b3", "c3", "d3"],
-        answer: "1"
       }
     ],
   },
   {
     exerciseId: 'src/exercise/03.md',
-    exerciseTitle: 'Manipuler le style',
+    exerciseTitle: 'Lifting state',
     quiz: [
       {
-        question: "LEs styles  ?",
-        options: ["css", "jss", "xss", "pdf"],
+        question: "Faut-il systématiquement faire remonter les states ?",
+        options: ["Oui", "Non"],
+        answer: "1"
+      }
+    ],
+  },
+  {
+    exerciseId: 'src/exercise/04.md',
+    exerciseTitle: 'EmojiList',
+    quiz: [
+      {
+        question: "Valide simplement cet exercice en cliquant sur validé",
+        options: ["Validé", "Non validé"],
         answer: "0"
-      },{
-        question: "HMTL est ",
-        options: ["a2", "b2", "c2", "d2"],
-        answer: "2"
-      } 
+      }
+    ],
+  },
+  {
+    exerciseId: 'src/exercise/05.md',
+    exerciseTitle: 'useRef et useEffect : DOM',
+    quiz: [
+      {
+        question: "React.useRef permet de creer une référence vers un élément du DOM ",
+        options: ["Vrai", "Faux"],
+        answer: "0"
+      },
+      {
+        question: "Peut-on stocker des valeurs dans le DOM grâce à useRef ?",
+        options: ["Oui", "Non"],
+        answer: "0"
+      }
+    ],
+  },
+  {
+    exerciseId: 'src/exercise/06.md',
+    exerciseTitle: 'Classe Refactor',
+    quiz: [
+      {
+        question: "En quoi doit-on convertir en classe ?",
+        options: ["En méthode", "En function", "En constante"],
+        answer: "1"
+      },
+      {
+        question: "Par quoi remplacer getDerivedStateFromProps ?",
+        options: ["useState", "useEffect", "useRef"],
+        answer: "1"
+      }
+    ],
+  },
+  {
+    exerciseId: 'src/exercise/07.md',
+    exerciseTitle: 'useEffect : Appels HTTP simples',
+    quiz: [
+      {
+        question: "Valide simplement cet exercice en cliquant sur validé",
+        options: ["Validé", "Non validé"],
+        answer: "0"
+      }
+    ],
+  },
+  {
+    exerciseId: 'src/exercise/08.md',
+    exerciseTitle: 'useEffect : Appels HTTP avancés',
+    quiz: [
+      {
+        question: "Valide simplement cet exercice en cliquant sur validé",
+        options: ["Validé", "Non validé"],
+        answer: "0"
+      }
     ],
   },
 ]
