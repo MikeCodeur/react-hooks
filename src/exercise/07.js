@@ -1,6 +1,7 @@
 // useEffect HTTP
 // http://localhost:3000/alone/exercise/07.js
 
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 function ArticleList({query = 'redux'}) {

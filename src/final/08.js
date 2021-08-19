@@ -1,32 +1,28 @@
-// useEffect HTTP
-// http://localhost:3000/alone/final/07.js
+// useEffect HTTP Avancée
+// http://localhost:3000/alone/final/08.js
 
 import * as React from 'react'
-import {fetchMarvel, fetchMarvelById, MarvelPersoView,MarvelSearchForm} from '../marvel'
-import '../07-styles.css'
+import {fetchMarvel,MarvelPersoView,MarvelSearchForm} from '../marvel'
+import '../08-styles.css'
 
 function MarvelDetails({marvelName}) {
 
   const [marvel, setMarvel] = React.useState()
-  const [error, setError] = React.useState(null)
-  
+
   React.useEffect(() => {
-    console.log('React.useEffect', marvelName)
     if (!marvelName) {
       return 
     }
+    setMarvel(null)
     fetchMarvel(marvelName)
     .then(marvel => setMarvel(marvel))
-    .catch(error => setError(error))
   }, [marvelName])
 
-
-  console.log('error', error)
   if (!marvelName) {
-    return 'Entre un nom de personnage Marvel'
+    return 'Entrer un nom de personnage Marvel'
   }
   if (!marvel) {
-    return 'Entre un nom de personnage Marvel'
+    return 'chargement ...'
   }
   return (
     <div>

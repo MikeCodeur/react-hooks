@@ -2,6 +2,7 @@
 // http://localhost:3000/alone/exercise/04.js
 // Fork de : https://github.com/ahfarmer/emoji-search/
 
+/* eslint-disable no-unused-vars */
 import * as React from 'react'
 import emojiList from '../emojiList'
 import Clipboard from 'clipboard'

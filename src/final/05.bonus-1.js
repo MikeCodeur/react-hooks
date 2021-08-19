@@ -1,6 +1,6 @@
 // useRef et useEffect
 // 🚀 settings avec useRef
-// http://localhost:3000/alone/final/05.js
+// http://localhost:3000/alone/final/05.bonus-1.js
 
 import * as React from 'react'
 import ConfettiGenerator from 'confetti-js'

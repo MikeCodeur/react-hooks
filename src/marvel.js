@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react'
 import {ErrorBoundary} from 'react-error-boundary'
 const marvelApiKey = '6bcc5c7ff0ad488fb58f759c4069964c'
@@ -55,37 +56,33 @@ const fetchMarvelById = id => {
     .catch(error => {
       return Promise.reject(new Error(`Aucun Marvel trouvé avec l'id "${id}"`))
     }) // ERROR APPEL API
-}
+} 
 
 function MarvelPersoView({marvel}) {
   return (
     <div>
-      <div className="pokemon-info__img-wrapper">
-        <img
+      <div className="marvel-img">
+        <img height="400"
           src={marvel.thumbnail.path + '.' + marvel.thumbnail.extension}
           alt={marvel.name}
         />
       </div>
-      <section>
-        <h2>
+      <div className="marvel-name">
+        <h1>
           {marvel.name}
           <sup>{marvel.number}</sup>
-        </h2>
-      </section>
-      <section>
-        <section>Apparait dans</section>
+        </h1>
+      </div>
+      <div className="marvel-wrapper">
+        <h3>Apparait dans</h3>
         <ul>
-          {marvel.stories.items.map(story => (
-            <li key={story.name}>
-              <label>{story.name}</label>:{' '}
-              <span>
-                {story.damage} <small>({story.type})</small>
-              </span>
+          {marvel.series.items.map((serie,idx) => (
+            <li key={idx}>
+              <label>{serie.name}</label>:{' '}
             </li>
           ))}
         </ul>
-      </section>
-      <small className="pokemon-info__fetch-time">{marvel.fetchedAt}</small>
+      </div>
     </div>
   )
 }
@@ -94,7 +91,7 @@ function MarvelSearchForm({onSearch, marvelName}) {
   const [name, setName] = React.useState(marvelName)
   return (
     <div className="component-header">
-      <div>Recherche Marvel</div>
+      <div>Recherche Marvel (<span onClick={(e) => setName('x-men')}>x-men</span>, <span onClick={(e) => setName('spider-man')}>spider-man</span> ...)</div>
       <div>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <input type="button" onClick={() =>onSearch(name)} value={'rechercher'} />
