@@ -183,8 +183,8 @@ ton avis ! https://go.mikecodeur.com/cours-react-avis
 [git]: https://git-scm.com/
 [build-badge]: https://img.shields.io/github/workflow/status/MikeCodeur/react-hooks/installation
 [build]: https://github.com/MikeCodeur/react-hooks/actions
-[netlify-badge]: https://api.netlify.com/api/v1/badges/40a35ecf-1972-4f90-b2d5-abcca8e2d862/deploy-status
-[netlify]: https://app.netlify.com/sites/gracious-brattain-0d6b8d/deploys
+[netlify-badge]: https://api.netlify.com/api/v1/badges/eb976be1-168d-4eb5-826b-3c881e6bbcbc/deploy-status
+[netlify]: https://app.netlify.com/sites/compassionate-pike-1d17c9/deploys
 [license-badge]: https://img.shields.io/badge/license-GPL%203.0%20License-blue.svg?style=flat-square
 [license]: https://github.com/mikecodeur/react-hooks/blob/main/LICENSE
 [all-contributors]: https://github.com/mikecodeur/all-contributors
