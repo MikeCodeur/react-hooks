@@ -39,7 +39,7 @@ function MarvelDetails({marvelName}) {
 }
 
 class ErrorBoundary extends React.Component {
-  state = {error:null}
+  state = {error: null}
 
   static getDerivedStateFromError(error) {
     return {error}
@@ -49,16 +49,15 @@ class ErrorBoundary extends React.Component {
     if (this.state.error) {
       return <ErrorDisplay error={this.state.error} />
     }
-    return this.props.children;
+    return this.props.children
   }
 }
 
-
-function ErrorDisplay({error}){
+function ErrorDisplay({error}) {
   return (
     <div style={{color: 'red'}}>
       Une erreur est survenue lors de la recherche de Marvel detail :{' '}
-      <pre style={{color: 'grey'}}> Détail :  {error.message}</pre>
+      <pre style={{color: 'grey'}}> Détail : {error.message}</pre>
     </div>
   )
 }
@@ -72,9 +71,9 @@ function App() {
     <div className="marvel-app">
       <MarvelSearchForm marvelName={marvelName} onSearch={handleSearch} />
       <div className="marvel-detail">
-      <ErrorBoundary ErrorDisplay={ErrorDisplay}>
-        <MarvelDetails marvelName={marvelName} />
-      </ErrorBoundary>
+        <ErrorBoundary ErrorDisplay={ErrorDisplay}>
+          <MarvelDetails marvelName={marvelName} />
+        </ErrorBoundary>
       </div>
     </div>
   )

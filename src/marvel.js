@@ -38,12 +38,12 @@ const fetchMarvel = name => {
     }) // ERROR APPEL API
 }
 
-
 function MarvelPersoView({marvel}) {
   return (
     <div>
       <div className="marvel-img">
-        <img height="400"
+        <img
+          height="400"
           src={marvel.thumbnail.path + '.' + marvel.thumbnail.extension}
           alt={marvel.name}
         />
@@ -57,7 +57,7 @@ function MarvelPersoView({marvel}) {
       <div className="marvel-wrapper">
         <h3>Apparait dans</h3>
         <ul>
-          {marvel.series.items.map((serie,idx) => (
+          {marvel.series.items.map((serie, idx) => (
             <li key={idx}>
               <label>{serie.name}</label>:{' '}
             </li>
@@ -72,14 +72,24 @@ function MarvelSearchForm({onSearch, marvelName}) {
   const [name, setName] = React.useState(marvelName)
   return (
     <div className="component-header">
-      <div>Recherche Marvel (<span onClick={(e) => setName('x-men')}>x-men</span>, <span onClick={(e) => setName('spider-man')}>spider-man</span> ...)</div>
       <div>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="button" onClick={() =>onSearch(name)} value={'rechercher'} />
+        Recherche Marvel (<span onClick={e => setName('x-men')}>x-men</span>,{' '}
+        <span onClick={e => setName('spider-man')}>spider-man</span> ...)
+      </div>
+      <div>
+        <input
+          type="text"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
+        <input
+          type="button"
+          onClick={() => onSearch(name)}
+          value={'rechercher'}
+        />
       </div>
     </div>
   )
 }
-
 
 export {MarvelPersoView, MarvelSearchForm, fetchMarvel}

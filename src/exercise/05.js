@@ -7,7 +7,7 @@ import * as React from 'react'
 
 function Confetti() {
   // 🐶 utilise useRef pour créer un référence 'confettiRef' vers le canvas de confetti
-  // 🤖 const confettiRef = React.useRef() 
+  // 🤖 const confettiRef = React.useRef()
 
   // 🐶 utilise useEffect pour initiliser le générateur de confetti avec les bons paramètres
   // 🤖 Initialisation :

@@ -46,10 +46,10 @@ function SearchInput({onTextChange}) {
 // 🐶 Gère le composant parent
 function EmojiSearch() {
   // 🐶 Créé un state `dataEmoji` qui contiendra un tableau d'émojis
-  // 🤖 const [dataEmoji, setDataEmoji] 
+  // 🤖 const [dataEmoji, setDataEmoji]
 
   // 🐶 Créé une fonction 'handleTextChange' qui prend en paramètre 'text' le texte saisie dans le champs Input
-  // 🐶 Dans cette fonction, filtre les émojis avec la fonction `filterEmoji(text)`  
+  // 🐶 Dans cette fonction, filtre les émojis avec la fonction `filterEmoji(text)`
   // 🐶 Met à jour le state 'dataEmoji'(`setDataEmoji`) avec la liste filtrée d'émojis
 
   // 🐶 Passe ensuite ces props aux composants enfants.
@@ -75,12 +75,12 @@ function EmojiSearch() {
 // 📑 l'attribut 'data-clipboard-text' permet de spécifier ce qui sera copié
 // 🤖 <div data-clipboard-text='Salut' /> copiera dans le press papier salut
 
-// 📑 il faut ensuite detruire l'objet quand on en a plus besoin 
+// 📑 il faut ensuite detruire l'objet quand on en a plus besoin
 // 🤖 clipboard.destroy();
 function Result({data = []}) {
   // 🐶 Utilise 'useEffect' pour gérer l'instanciation de clipboard
   // 🤖 React.useEffect
-  // 🤖 const clipboard = new Clipboard('.copy-to-clipboard') 
+  // 🤖 const clipboard = new Clipboard('.copy-to-clipboard')
 
   // 🐶 N'oubllie pas de 'cleanup' detruire l'objet dans useEffect en retournant une fonction fléché
   // 🤖 return () => { clipboard.destroy() }

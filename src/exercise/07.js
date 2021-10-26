@@ -2,21 +2,25 @@
 // http://localhost:3000/alone/exercise/07.js
 
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React from 'react'
 
 function ArticleList({query = 'redux'}) {
   const [data, setData] = React.useState([])
 
-  React.useEffect(() => {
-    // ⛏️ décommmente ces 3 lignes pour l'appel à HTTP 
-    // return fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
-    //   .then(response => response.json())
-    //   .then(json => setData(json.hits))
-
-    // 🐶 n'oublie pas la dépendance vers 'query' pour n'appeler l'api 
-    // que sur la modification du prop 'query'
-    // 🤖 [query]
-  }, [/*dependances ici*/])
+  React.useEffect(
+    () => {
+      // ⛏️ décommmente ces 3 lignes pour l'appel à HTTP
+      // return fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
+      //   .then(response => response.json())
+      //   .then(json => setData(json.hits))
+      // 🐶 n'oublie pas la dépendance vers 'query' pour n'appeler l'api
+      // que sur la modification du prop 'query'
+      // 🤖 [query]
+    },
+    [
+      /*dependances ici*/
+    ],
+  )
 
   return (
     <ul>

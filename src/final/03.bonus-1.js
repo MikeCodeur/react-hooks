@@ -4,7 +4,6 @@
 
 import * as React from 'react'
 
-
 function MyBestComputer({computer, onComputerChange}) {
   return (
     <div>
@@ -33,7 +32,7 @@ function UserName() {
 function Content({computer}) {
   return (
     <div>
-     Ton ordinateur préféré est <b>{computer}</b>
+      Ton ordinateur préféré est <b>{computer}</b>
     </div>
   )
 }

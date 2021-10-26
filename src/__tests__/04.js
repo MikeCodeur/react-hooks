@@ -24,6 +24,4 @@ ${chalk.reset(prettyDOM(container))}
     `.trim(),
     )
   })
-
- 
 })

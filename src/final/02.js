@@ -5,10 +5,10 @@ import * as React from 'react'
 
 function Login({initialEmail = ''}) {
   const [email, setEmail] = React.useState(initialEmail)
-  const handleChange = async event =>  setEmail(event.target.value)
+  const handleChange = async event => setEmail(event.target.value)
 
   React.useEffect(() => {
-    console.log('Email Value',document.getElementById('email').value)
+    console.log('Email Value', document.getElementById('email').value)
   })
   return (
     <div>
