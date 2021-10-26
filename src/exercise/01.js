@@ -9,10 +9,10 @@ function Login() {
   // ⛏️ supprime la variable email et replace par un hook useState.
   const email = ''
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     // 🐶 Récupère la valeur du champ input avec event.target.value et met à jour l'email
   }
-  
+
   return (
     <div>
       <div>

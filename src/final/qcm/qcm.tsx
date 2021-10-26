@@ -3,13 +3,13 @@ import React from 'react'
 
 interface IQuestion {
   question: string
-  options:string[]
+  options: string[]
   answer: string
 }
 
 interface IQCMInterface {
   exerciseId: string
-  exerciseTitle : string
+  exerciseTitle: string
   quiz: IQuestion[]
 }
 
@@ -19,10 +19,14 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'useState',
     quiz: [
       {
-        question: "Comment initiliaser un state par défaut ?",
-        options: ["React.useDefautState(0)", "React.useState(0)", "React.useState = 0"],
-        answer: "1"
-      }
+        question: 'Comment initiliaser un state par défaut ?',
+        options: [
+          'React.useDefautState(0)',
+          'React.useState(0)',
+          'React.useState = 0',
+        ],
+        answer: '1',
+      },
     ],
   },
   //export
@@ -32,13 +36,20 @@ const QCM: Array<IQCMInterface> = [
     quiz: [
       {
         question: "useEffect s'execute",
-        options: ["Avant le rendu final du composant", "Après le rendu final du composant"],
-        answer: "1"
-      },{
-        question: "A quoi servent les dépendances de useEffect ?",
-        options: ["A limiter l'execution du hook sur un chagement de valeur", "A executer systematiquement"],
-        answer: "0"
-      }
+        options: [
+          'Avant le rendu final du composant',
+          'Après le rendu final du composant',
+        ],
+        answer: '1',
+      },
+      {
+        question: 'A quoi servent les dépendances de useEffect ?',
+        options: [
+          "A limiter l'execution du hook sur un chagement de valeur",
+          'A executer systematiquement',
+        ],
+        answer: '0',
+      },
     ],
   },
   {
@@ -46,10 +57,10 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'Lifting state',
     quiz: [
       {
-        question: "Faut-il systématiquement faire remonter les states ?",
-        options: ["Oui", "Non"],
-        answer: "1"
-      }
+        question: 'Faut-il systématiquement faire remonter les states ?',
+        options: ['Oui', 'Non'],
+        answer: '1',
+      },
     ],
   },
   {
@@ -57,10 +68,10 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'EmojiList',
     quiz: [
       {
-        question: "Valide simplement cet exercice en cliquant sur validé",
-        options: ["Validé", "Non validé"],
-        answer: "0"
-      }
+        question: 'Valide simplement cet exercice en cliquant sur validé',
+        options: ['Validé', 'Non validé'],
+        answer: '0',
+      },
     ],
   },
   {
@@ -68,15 +79,16 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'useRef et useEffect : DOM',
     quiz: [
       {
-        question: "React.useRef permet de creer une référence vers un élément du DOM ",
-        options: ["Vrai", "Faux"],
-        answer: "0"
+        question:
+          'React.useRef permet de creer une référence vers un élément du DOM ',
+        options: ['Vrai', 'Faux'],
+        answer: '0',
       },
       {
-        question: "Peut-on stocker des valeurs dans le DOM grâce à useRef ?",
-        options: ["Oui", "Non"],
-        answer: "0"
-      }
+        question: 'Peut-on stocker des valeurs dans le DOM grâce à useRef ?',
+        options: ['Oui', 'Non'],
+        answer: '0',
+      },
     ],
   },
   {
@@ -84,15 +96,15 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'Classe Refactor',
     quiz: [
       {
-        question: "En quoi doit-on convertir en classe ?",
-        options: ["En méthode", "En function", "En constante"],
-        answer: "1"
+        question: 'En quoi doit-on convertir en classe ?',
+        options: ['En méthode', 'En function', 'En constante'],
+        answer: '1',
       },
       {
-        question: "Par quoi remplacer getDerivedStateFromProps ?",
-        options: ["useState", "useEffect", "useRef"],
-        answer: "1"
-      }
+        question: 'Par quoi remplacer getDerivedStateFromProps ?',
+        options: ['useState', 'useEffect', 'useRef'],
+        answer: '1',
+      },
     ],
   },
   {
@@ -100,10 +112,10 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'useEffect : Appels HTTP simples',
     quiz: [
       {
-        question: "Valide simplement cet exercice en cliquant sur validé",
-        options: ["Validé", "Non validé"],
-        answer: "0"
-      }
+        question: 'Valide simplement cet exercice en cliquant sur validé',
+        options: ['Validé', 'Non validé'],
+        answer: '0',
+      },
     ],
   },
   {
@@ -111,10 +123,10 @@ const QCM: Array<IQCMInterface> = [
     exerciseTitle: 'useEffect : Appels HTTP avancés',
     quiz: [
       {
-        question: "Valide simplement cet exercice en cliquant sur validé",
-        options: ["Validé", "Non validé"],
-        answer: "0"
-      }
+        question: 'Valide simplement cet exercice en cliquant sur validé',
+        options: ['Validé', 'Non validé'],
+        answer: '0',
+      },
     ],
   },
 ]
@@ -122,6 +134,6 @@ const QCM: Array<IQCMInterface> = [
 //export default QCM;
 
 const QcmComponent = () => {
-  return (<>{ JSON.stringify(QCM, null, 2) }</>);
+  return <>{JSON.stringify(QCM, null, 2)}</>
 }
 export default QcmComponent

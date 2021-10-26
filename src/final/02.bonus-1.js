@@ -9,19 +9,19 @@ function Login({initialEmail = ''}) {
     () => window.localStorage.getItem('email') || initialEmail,
   )
   const [password, setPassword] = React.useState('')
-  const handleChange = async event =>  setEmail(event.target.value)
-  const handlePasswordChange = async event =>  setPassword(event.target.value)
+  const handleChange = async event => setEmail(event.target.value)
+  const handlePasswordChange = async event => setPassword(event.target.value)
 
   React.useEffect(() => {
     window.localStorage.setItem('email', email)
     console.log('useEffect email a changé')
-  },[email])
+  }, [email])
   return (
     <div>
       <form>
         <label>Entrez votre email : </label>
         <input value={email} onChange={handleChange} />
-        <label>Password :    </label>  
+        <label>Password : </label>
         <input value={password} onChange={handlePasswordChange} />
       </form>
     </div>

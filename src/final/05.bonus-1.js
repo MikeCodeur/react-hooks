@@ -7,11 +7,11 @@ import ConfettiGenerator from 'confetti-js'
 
 function Confetti() {
   const confettiRef = React.useRef()
-  const refSetting = React.useRef({clock: 100, animate: true, max:200})
+  const refSetting = React.useRef({clock: 100, animate: true, max: 200})
 
   React.useEffect(() => {
     const confettiSettings = {
-      target: confettiRef.current ,
+      target: confettiRef.current,
       ...refSetting.current,
     }
     const confetti = new ConfettiGenerator(confettiSettings)

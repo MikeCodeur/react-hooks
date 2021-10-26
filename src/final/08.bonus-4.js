@@ -39,11 +39,11 @@ function MarvelDetails({marvelName}) {
   )
 }
 
-function ErrorDisplay({error}){
+function ErrorDisplay({error}) {
   return (
     <div style={{color: 'red'}}>
       Une erreur est survenue lors de la recherche de Marvel detail :{' '}
-      <pre style={{color: 'grey'}}> Détail :  {error.message}</pre>
+      <pre style={{color: 'grey'}}> Détail : {error.message}</pre>
     </div>
   )
 }
@@ -57,9 +57,9 @@ function App() {
     <div className="marvel-app">
       <MarvelSearchForm marvelName={marvelName} onSearch={handleSearch} />
       <div className="marvel-detail">
-      <ErrorBoundary key={marvelName} FallbackComponent={ErrorDisplay}>
-        <MarvelDetails marvelName={marvelName} />
-      </ErrorBoundary>
+        <ErrorBoundary key={marvelName} FallbackComponent={ErrorDisplay}>
+          <MarvelDetails marvelName={marvelName} />
+        </ErrorBoundary>
       </div>
     </div>
   )

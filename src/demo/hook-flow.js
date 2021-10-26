@@ -2,7 +2,6 @@
 // https://github.com/donavon/hook-flow
 // http://localhost:3000/alone/demo/hook-flow.js
 
-
 import * as React from 'react'
 
 function Child() {

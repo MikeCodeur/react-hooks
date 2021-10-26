@@ -14,7 +14,7 @@ function MyBestComputer() {
       <label>Mon ordinateur préféré : </label>
       <input
         value={computer}
-        // 🐶 remplace `setComputer` par `onComputerChange` 
+        // 🐶 remplace `setComputer` par `onComputerChange`
         onChange={event => setComputer(event.target.value)}
       />
     </div>
@@ -38,8 +38,7 @@ function Content({userName}) {
   return (
     <div>
       {/* ⛏️ surprime ce libellé */}
-      Salut <b>{userName}</b> !
-      {/* 🐶 Utilise plutôt celui ci */}
+      Salut <b>{userName}</b> !{/* 🐶 Utilise plutôt celui ci */}
       {/* Salut <b>{userName}</b>, ton ordinateur préféré est <b>{computer}</b> */}
     </div>
   )

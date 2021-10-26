@@ -2,20 +2,18 @@
 // http://localhost:3000/alone/final/08.js
 
 import * as React from 'react'
-import {fetchMarvel,MarvelPersoView,MarvelSearchForm} from '../marvel'
+import {fetchMarvel, MarvelPersoView, MarvelSearchForm} from '../marvel'
 import '../08-styles.css'
 
 function MarvelDetails({marvelName}) {
-
   const [marvel, setMarvel] = React.useState()
 
   React.useEffect(() => {
     if (!marvelName) {
-      return 
+      return
     }
     setMarvel(null)
-    fetchMarvel(marvelName)
-    .then(marvel => setMarvel(marvel))
+    fetchMarvel(marvelName).then(marvel => setMarvel(marvel))
   }, [marvelName])
 
   if (!marvelName) {
@@ -26,24 +24,23 @@ function MarvelDetails({marvelName}) {
   }
   return (
     <div>
-     <MarvelPersoView marvel={marvel} />
+      <MarvelPersoView marvel={marvel} />
     </div>
   )
 }
 
 function App() {
   const [marvelName, setMarvelName] = React.useState('')
-  const handleSearch = (name) => {
+  const handleSearch = name => {
     setMarvelName(name)
   }
   return (
     <div className="marvel-app">
-       <MarvelSearchForm marvelName={marvelName} onSearch={handleSearch}   />
+      <MarvelSearchForm marvelName={marvelName} onSearch={handleSearch} />
       <div className="marvel-detail">
-        <MarvelDetails marvelName={marvelName}  />
+        <MarvelDetails marvelName={marvelName} />
       </div>
     </div>
-    
   )
 }
 export default App
