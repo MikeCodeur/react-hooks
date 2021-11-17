@@ -3,7 +3,7 @@
 
 import * as React from 'react'
 
-// 👨‍✈️ Nous voulons afficher dans le composant Content, l'orfinateur préféré
+// 👨‍✈️ Nous voulons afficher dans le composant Content, l'ordinateur préféré
 
 // 🐶 accepte `computer` et `onComputerChange` en props de ce composant
 function MyBestComputer() {

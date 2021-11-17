@@ -7,7 +7,7 @@ function ArticleList({query = 'redux'}) {
   const [data, setData] = React.useState([])
 
   React.useEffect(() => {
-    return fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
+    fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
       .then(response => response.json())
       .then(json => {
         setData(json.hits)

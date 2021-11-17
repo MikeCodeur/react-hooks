@@ -1,5 +1,5 @@
 // Hook useState
-// http://localhost:3000/alone/exercise/02.js
+// http://localhost:3000/alone/exercise/01.js
 
 import * as React from 'react'
 
