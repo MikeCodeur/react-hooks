@@ -1,3 +1,4 @@
+"use client"
 // useEffect HTTP
 // http://localhost:3000/alone/final/07.js
 

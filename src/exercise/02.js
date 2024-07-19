@@ -1,3 +1,4 @@
+"use client"
 // Hook useEffect
 // http://localhost:3000/alone/exercise/02.js
 

@@ -1,3 +1,4 @@
+"use client"
 // useRef et useEffect
 // 🚀 settings avec useRef
 // http://localhost:3000/alone/final/05.bonus-1.js

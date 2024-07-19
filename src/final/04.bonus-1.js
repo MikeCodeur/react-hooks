@@ -1,3 +1,4 @@
+"use client"
 // Emoji List
 // 🚀 Avec Hook Clipboard
 // http://localhost:3000/alone/final/04.bonus-1.js

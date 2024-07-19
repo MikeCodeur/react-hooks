@@ -1,3 +1,4 @@
+"use client"
 // Lifting state
 // http://localhost:3000/alone/final/03.js
 

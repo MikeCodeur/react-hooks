@@ -1,3 +1,4 @@
+"use client"
 // useEffect HTTP Avancée
 // 🚀 Error
 // http://localhost:3000/alone/final/08.bonus-1.js

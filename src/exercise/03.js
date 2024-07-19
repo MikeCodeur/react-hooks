@@ -1,3 +1,4 @@
+"use client"
 // Lifting state
 // http://localhost:3000/alone/exercise/03.js
 

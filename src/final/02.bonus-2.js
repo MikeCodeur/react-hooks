@@ -1,3 +1,4 @@
+"use client"
 // Hook useEffect
 // 🚀 effect dependencies props
 // http://localhost:3000/alone/final/02.bonus-2.js

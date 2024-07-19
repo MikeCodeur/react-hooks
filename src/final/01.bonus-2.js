@@ -1,3 +1,4 @@
+"use client"
 // Hook useState
 // 🚀 Valider une donnée
 // http://localhost:3000/alone/final/01.bonus-2.js

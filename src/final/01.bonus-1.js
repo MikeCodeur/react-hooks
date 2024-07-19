@@ -1,3 +1,4 @@
+"use client"
 // Hook useState
 // 🚀 Valeur initiale
 // http://localhost:3000/alone/final/01.bonus-1.js

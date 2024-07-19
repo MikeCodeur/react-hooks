@@ -1,3 +1,4 @@
+"use client"
 // Emoji List
 // http://localhost:3000/alone/exercise/04.js
 // Fork de : https://github.com/ahfarmer/emoji-search/

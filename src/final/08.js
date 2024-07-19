@@ -1,3 +1,4 @@
+"use client"
 // useEffect HTTP Avancée
 // http://localhost:3000/alone/final/08.js
 

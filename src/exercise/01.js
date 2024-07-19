@@ -1,3 +1,4 @@
+"use client"
 // Hook useState
 // http://localhost:3000/alone/exercise/01.js
 

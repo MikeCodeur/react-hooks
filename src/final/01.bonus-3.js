@@ -1,3 +1,4 @@
+"use client"
 // Hook useState
 // 🚀 Lazy initialisation
 // http://localhost:3000/alone/final/01.bonus-3.js

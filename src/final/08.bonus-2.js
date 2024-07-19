@@ -1,3 +1,4 @@
+"use client"
 // useEffect HTTP Avancée
 // 🚀 Error Boundarie
 // http://localhost:3000/alone/final/08.bonus-2.js

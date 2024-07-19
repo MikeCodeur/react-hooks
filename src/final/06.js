@@ -1,3 +1,4 @@
+"use client"
 // useRef et useEffect
 // http://localhost:3000/alone/final/06.js
 

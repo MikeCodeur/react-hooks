@@ -1,3 +1,4 @@
+"use client"
 // Lifting state
 // 🚀 deplacer un state
 // http://localhost:3000/alone/final/03.bonus-1.js
