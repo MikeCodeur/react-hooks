@@ -2,7 +2,7 @@
 /* NE PAS MODIFIER CE FICHIER  */
 import * as React from 'react'
 import {ErrorBoundary} from 'react-error-boundary'
-const marvelApiKey = '6bcc5c7ff0ad488fb58f759c4069964c'
+const marvelApiKey = '8465abf79215e480f8131b9615f14c91'
 
 const myHeader = new Headers({
   'Content-Type': 'application/x-www-form-urlencoded',
